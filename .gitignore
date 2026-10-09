@@ -1,0 +1,36 @@
+# Maven build output
+
+target/
+
+# Python virtual environment
+
+venv/
+.venv/
+
+# Python cache
+
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+
+.env
+.env.*
+
+# Generated AI analysis reports
+
+reports/
+
+# Local monitor state
+
+automation/processed_builds.json
+
+# IDE files
+
+.idea/
+.vscode/
+
+# Operating system files
+
+.DS_Store
+

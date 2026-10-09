@@ -1,0 +1,28 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - checkout: self
+
+  - script: |
+      java -version
+      mvn -version
+    displayName: 'Verify Java and Maven'
+
+  - script: |
+      mvn -B clean test
+    displayName: 'Build and Test Spring Boot Application'
+
+  - script: |
+      mvn -B package
+    displayName: 'Package Application'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Application JAR'
+    inputs:
+      PathtoPublish: 'target'
+      ArtifactName: 'spring-boot-artifact'
+      publishLocation: 'Container'
